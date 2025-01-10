@@ -77,10 +77,10 @@ const sections = [
       {
         colour:0x00ff00,
         title: "JP Morgan",
-        body: "Incoming Software Engineering Intern",
+        body: "Software Engineering Intern",
         model: "/models/letter_box.glb",
         offset: [-0.25, 0.0, -0.1],
-        shift: 0.0,
+        shift: 0.125,
         scale: 5,
         rotation: Math.PI / 4,
         popupTitle: "Liam Murphy",
@@ -263,8 +263,9 @@ const ThreeScene = () => {
   const [currentCube, setCurrentCube] = useState(0); // State to track dark mode
   const [visiblePopup, setVisiblePopup] = useState<boolean>(true);
   const [freeze, setFreeze] = useState(false);
+  const [freezeUp, setFreezeUp] = useState(false);
   const loader = new FontLoader();
-  const [popupTitle, setPopupTitle] = useState(sections[0].subsections[0].popupTitle)
+  const [popupTitle, setPopupTitle] = useState(sections[0].subsections[0].title)
   const [popupBody, setPopupBody] = useState(sections[0].subsections[0].popupBody)
   const [loading, setLoading] = useState(true);
 
@@ -411,7 +412,7 @@ const ThreeScene = () => {
       })});
 
     // Position the camera
-    camera.position.set(startX, startY, startZ)
+    camera.position.set(startX, startY+4, startZ)
 
     // Animation loop
     const animate = () => {
@@ -496,7 +497,7 @@ const ThreeScene = () => {
   }, [isDarkMode]);
 
   const handleSlide = (index:number) => {
-    if (cameraRef.current && index >= 0 && index < counter) {
+    if (cameraRef.current && index >= 0 && index < counter && !freezeUp) {
       setFreeze(true);
       setCurrentCube(index);
       var currentSection = 0;
@@ -505,14 +506,31 @@ const ThreeScene = () => {
         sectionIndex -= sections[currentSection].subsections.length;
         currentSection += 1;
       }
-      setPopupTitle(sections[currentSection].subsections[sectionIndex].popupTitle);
+      setPopupTitle(sections[currentSection].subsections[sectionIndex].title);
       setPopupBody(sections[currentSection].subsections[sectionIndex].popupBody);
-      slideCamera(cameraRef.current, startX+1*index*spacingScale, startZ+-1*index*spacingScale, 3, () => {
+      slideCamera(cameraRef.current, startX+1*index*spacingScale, startY, startZ+-1*index*spacingScale, 3, () => {
         console.log("Camera slide complete!");
         setFreeze(false);
       });
     }
   };
+
+  const showExtra = (up:boolean) => {
+    if (cameraRef.current)
+      setFreezeUp(true);
+      var increase = 0;
+      if (up) {
+        increase = 4
+        setVisiblePopup(true)
+      } else {
+        increase = 0
+        setVisiblePopup(false)
+      }
+      slideCamera(cameraRef.current, startX+1*currentCube*spacingScale, startY+increase, startZ+-1*currentCube*spacingScale, 3, () => {
+        console.log("Camera slide complete!");
+        setFreezeUp(false);
+      });
+  }
 
   return (
     <>
@@ -584,7 +602,9 @@ const ThreeScene = () => {
           justifyContent: "center",
           alignItems: "center",
           fontFamily: "Courier New",
-          zIndex:1
+          zIndex:1,
+          opacity: visiblePopup ? 0.2 : 1,
+            transition: "opacity 2s ease"
         }}
       >
         {/* Left Button */}
@@ -671,23 +691,7 @@ const ThreeScene = () => {
           opacity: 1,
           zIndex: 0
         }}
-        onClick={() => {if (!freeze) setVisiblePopup(true)}}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          width: "100%",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-          fontFamily: "Courier New",
-          backgroundColor: isDarkMode ? "black" : "white",
-          zIndex: 2,
-          display: visiblePopup ? "flex" : "none",
-          opacity: 0.75
-        }}
+        onClick={() => {if (!freeze) showExtra(true)}}
       />
       <div
         style={{
@@ -700,37 +704,20 @@ const ThreeScene = () => {
           alignItems: "center",
           fontFamily: "Courier New",
           zIndex: 3,
-          display: visiblePopup ? "flex" : "none",
+          display: "flex",
+          opacity: visiblePopup ? 1 : 0,
+          transition: "opacity 3s ease",
+          pointerEvents: visiblePopup ? "auto" : "none"
         }}
       >
         <div
           style={{
-            backgroundColor: isDarkMode ? "#404040" : "#eeeeee",
             padding: "8px 24px",
-            border: "1px solid #101010",
-            borderRadius: "4px",
             width: window.innerWidth < 600 ? "90%" : "50%",
             position: "relative",
             color: isDarkMode ? "#eeeeee" : "black"
           }}
         >
-          <button
-            style={{
-              position: "absolute",
-              top: "5px",
-              right: "8px",
-              width: "24px",
-              height: "24px",
-              cursor: "pointer",
-              background: "none",
-              border: "none",
-              fontWeight: "bolder",
-              fontSize: "20px"
-            }}
-            onClick={() => {setVisiblePopup(false)}}
-          >
-            →
-          </button>
           <h1 style={{
               padding: "8px 0px 0px 0px"
             }}
@@ -745,6 +732,21 @@ const ThreeScene = () => {
           >
             {popupBody}
           </div>
+          <button
+            style={{
+              width: "24px",
+              height: "24px",
+              cursor: "pointer",
+              background: "none",
+              border: "none",
+              fontWeight: "bolder",
+              fontSize: "20px",
+              color: isDarkMode ? "#eeeeee" : "black"
+            }}
+            onClick={() => {showExtra(false)}}
+          >
+            ↓
+          </button>
         </div>
       </div>
     </>
