@@ -9,16 +9,14 @@ const slideCamera = (
   duration: number = 1.5,
   onComplete?: () => void
 ) => {
-
-  // Animate camera position using GSAP
   gsap.to(camera.position, {
     x: X,
     y: Y,
     z: Z,
     duration: duration,
-    ease: "power2.inOut", // Easing for smooth animation
+    ease: "power2.inOut",
     onUpdate: () => {
-      camera.updateProjectionMatrix(); // Ensure the camera updates properly
+      camera.updateProjectionMatrix();
     },
     onComplete: () => {
       if (onComplete) onComplete();

@@ -1,5 +1,5 @@
 import './App.css'
-import ProjectScene from './components/project-scene'
+import ProjectScene from './components/projectScene'
 
 function App() {
   return (
