@@ -54,8 +54,8 @@ const PortfolioScene = () => {
     // Create Scene
     const scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0x404040, 1));
-    scene.background = new THREE.Color(0xeeeeee);
-    scene.fog = new THREE.Fog(0xaaaaaa, spacingScale / 2, 2 * spacingScale);
+    scene.background = new THREE.Color(darkMode ? 0x1a1a1a : 0xeeeeee);
+    scene.fog = new THREE.Fog(darkMode ? 0x101010 : 0xffffff, spacingScale / 2, 2 * spacingScale);
     sceneRef.current = scene;
 
     // Create Camera
@@ -127,7 +127,7 @@ const PortfolioScene = () => {
               bevelSize: 0.01,
               bevelSegments: 5,
             });
-            const textMaterial = new THREE.MeshStandardMaterial({ color: 0x7373ff });
+            const textMaterial = new THREE.MeshStandardMaterial({ color: darkMode ? 0xeeeeee : 0x7373ff });
             const textMesh = new THREE.Mesh(textGeometry, textMaterial);
             textMesh.position.set(1 + subsection.shift + subsection.pos * spacingScale, 0.6, -subsection.pos * spacingScale);
             scene.add(textMesh);
@@ -159,7 +159,7 @@ const PortfolioScene = () => {
               bevelSize: 0.003,
               bevelSegments: 5,
             });
-            const textMaterial = new THREE.MeshStandardMaterial({ color: 0x7373ff });
+            const textMaterial = new THREE.MeshStandardMaterial({ color: darkMode ? 0xeeeeee : 0x7373ff });
             const textMesh = new THREE.Mesh(textGeometry, textMaterial);
             textMesh.position.set(1 + subsection.shift + subsection.pos * spacingScale, 0.35, -subsection.pos * spacingScale);
             scene.add(textMesh);
@@ -279,7 +279,7 @@ const PortfolioScene = () => {
   
   return (
     <>
-      <h1
+      <div
         style={{
           position: "absolute",
           bottom: "5px",
@@ -297,9 +297,7 @@ const PortfolioScene = () => {
           transition: "opacity 2s ease",
         }}
         onTransitionEnd={(e) => {
-          if (e.propertyName === "opacity" && !loading) {
-            e.target.style.display = "none";
-          }
+          if (e.propertyName === "opacity" && !loading) e.target.style.display = "none";
         }}
       >
         <div style={{
@@ -319,7 +317,7 @@ const PortfolioScene = () => {
             `}
           </style>
         </div>
-      </h1>
+      </div>
       <button onClick={() => setDarkMode(!darkMode)} style={{
         position: 'absolute',
         top: '20px',
