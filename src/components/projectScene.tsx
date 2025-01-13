@@ -8,6 +8,9 @@ import sections from "../assets/sections";
 
 
 var text : THREE.MeshStandardMaterial[] = []
+var lights : THREE.DirectionalLight[] = []
+var lightPositions : THREE.Vector3[] = []
+var lightTargets : THREE.Object3D[] = []
 var models : Map<String, THREE.Group> = new Map;
 
 const startX = 1.5;
@@ -33,8 +36,8 @@ const PortfolioScene = () => {
   const [detailTransition, setDetailTransition] = useState(false);
 
   const [showDetails, setShowDetails] = useState<boolean>(true);
-  const [detailTitle, setDetailTitle] = useState(sections[0].subsections[0].title)
-  const [detailBody, setDetailBody] = useState(sections[0].subsections[0].detailBody)
+  const [detailTitle, setDetailTitle] = useState(sections[0].subsections[0].title);
+  const [detailBody, setDetailBody] = useState(sections[0].subsections[0].detailBody);
 
 
   // assign positions to subsections, tricky to count as stored as nested arrays and maps
@@ -133,13 +136,12 @@ const PortfolioScene = () => {
             scene.add(textMesh);
             text.push(textMaterial);
 
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 2/counter);
-            directionalLight.position.set(8 + subsection.shift + subsection.pos * spacingScale, 5, 5 + -subsection.pos * spacingScale);
-            directionalLight.castShadow = true;
-            directionalLight.target = textMesh;
-            directionalLight.shadow.mapSize.width = 2048;
-            directionalLight.shadow.mapSize.height = 2048;
-            scene.add(directionalLight);
+            // Create Lighting Positions
+            const target = new THREE.Object3D();
+            target.position.set(1 + subsection.shift + subsection.pos * spacingScale, 0.6, -subsection.pos * spacingScale)
+            scene.add(target);
+            lightPositions.push(new THREE.Vector3(8 + subsection.shift + subsection.pos * spacingScale, 5, 5 + -subsection.pos * spacingScale))
+            lightTargets.push(target)
             
             modelsLeft--;
             if (modelsLeft <= 0) setLoading(false);
@@ -172,9 +174,47 @@ const PortfolioScene = () => {
       })
     });
 
+    for (let i = 0 ; i < 3 ; i++) {
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 2/3);
+      directionalLight.castShadow = true;
+      directionalLight.shadow.mapSize.width = 2048;
+      directionalLight.shadow.mapSize.height = 2048;
+      directionalLight.shadow.camera.near = 1;
+      directionalLight.shadow.camera.far = 20;
+      directionalLight.shadow.camera.left = -5;
+      directionalLight.shadow.camera.right = 5;
+      directionalLight.shadow.camera.top = 5;
+      directionalLight.shadow.camera.bottom = -5;
+      scene.add(directionalLight);
+      lights.push(directionalLight);
+    }
+
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
+
+      // Once all lights have been created move lights to exist on previous, current, and future sections - faking having a light per section
+      if (lightPositions.length == counter) {
+        var minDistance = camera.position.distanceTo(lightPositions[1]);
+        var minIndex = 1;
+        
+        lightPositions.forEach((lightPosition, index) => {
+          if (index > 0 && index < counter - 1) {
+            let distance = camera.position.distanceTo(lightPosition);
+            if (distance < minDistance) {
+              minIndex = index;
+              minDistance = distance;
+            }
+          }
+        })
+
+        var settingLight = minIndex - 1;
+        lights.forEach((light) => {
+          light.position.set(lightPositions[settingLight].x, lightPositions[settingLight].y, lightPositions[settingLight].z);
+          light.target = lightTargets[settingLight];
+          settingLight++;
+        })
+      }
 
       // animate globe
       const globe = models.get("About Me");
@@ -265,15 +305,15 @@ const PortfolioScene = () => {
 
   // Handle Transition for Show Details
   const detailCameraTransition = (showDetails:boolean) => {
-    if (cameraRef.current)
+    if (cameraRef.current && !detailTransition) {
       setDetailTransition(true);
       const heightIncrease = showDetails ? detailHeight : 0
       setShowDetails(showDetails)
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
-      }
-    );
+      })
+    };
   }
 
   
@@ -458,7 +498,13 @@ const PortfolioScene = () => {
             padding: "8px 24px",
             width: window.innerWidth < 600 ? "90%" : "50%",
             position: "relative",
-            color: darkMode ? "#eeeeee" : "black"
+            color: darkMode ? "#eeeeee" : "black",
+            display: "flex",
+            borderColor: darkMode ? "#eeeeee" : "black",
+            flexDirection: "column",
+            gap:"16px",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <h1 style={{
@@ -467,14 +513,7 @@ const PortfolioScene = () => {
           >
             {detailTitle}
           </h1>
-          <div
-            style={{
-              display: "flex",
-              padding: "16px 0px"
-            }}
-          >
-            {detailBody}
-          </div>
+          {detailBody}
           <button
             style={{
               width: "24px",
