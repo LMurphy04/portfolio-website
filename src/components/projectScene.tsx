@@ -19,7 +19,8 @@ const startZ = Math.max(4 * window.innerHeight / window.innerWidth, 3.0);
 
 const spacingScale = 15;
 const detailHeight = 4;
-var frameCount = 0;
+
+var timeOfLastRender : number | null = null;
 
 
 const PortfolioScene = () => {
@@ -216,28 +217,30 @@ const PortfolioScene = () => {
         })
       }
 
+      const currentTime = performance.now();
+      if (!timeOfLastRender) timeOfLastRender = currentTime;
+      var timeDelta = currentTime - timeOfLastRender;
+      timeOfLastRender = currentTime
+      const globalCyclePosition = (currentTime / 1000) % (Math.PI * 2)
+
       // animate globe
       const globe = models.get("About Me");
       if (globe) {
-        globe.rotation.y += 0.01;
-        globe.position.y = 0.5 +Math.sin(frameCount)/10;
+        globe.rotation.y += 0.0005 * timeDelta;
+        globe.position.y = 0.5 + Math.sin(globalCyclePosition)/10;
       }
 
       // animate pin
       const pin = models.get("Portfolio Website");
       if (pin) {
-        pin.position.y = 0.7 + Math.sin(frameCount)/10;
+        pin.position.y = 0.7 + Math.sin(globalCyclePosition)/10;
       }
 
       // animate eye
       const eye = models.get("DSA Visual");
       if (eye) {
-        eye.rotation.y = Math.PI/4 + Math.sin(3*frameCount)/10;
+        eye.rotation.y = Math.PI/4 + Math.sin(3*globalCyclePosition)/10;
       }
-
-      // update global frame counter
-      frameCount += Math.PI / 180
-      frameCount = frameCount % (2 * Math.PI);
 
       renderer.render(scene, camera);
     };
