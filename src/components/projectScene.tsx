@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { useSwipeable } from "react-swipeable";
 import slideCamera from "./slideCamera";
 import sections from "../assets/sections";
 
@@ -39,6 +40,11 @@ const PortfolioScene = () => {
   const [showDetails, setShowDetails] = useState<boolean>(true);
   const [detailTitle, setDetailTitle] = useState(sections[0].subsections[0].title);
   const [detailBody, setDetailBody] = useState(sections[0].subsections[0].detailBody);
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {if (!showDetails && !sectionTransition && !detailTransition && !loading) sectionCameraTransition(currentSection+1)},
+    onSwipedRight: () => {if (!showDetails && !sectionTransition && !detailTransition && !loading) sectionCameraTransition(currentSection-1)},
+  });
 
 
   // assign positions to subsections, tricky to count as stored as nested arrays and maps
@@ -320,7 +326,7 @@ const PortfolioScene = () => {
 
   
   return (
-    <>
+    <div {...handlers}>
       <div
         style={{
           position: "absolute",
@@ -533,7 +539,7 @@ const PortfolioScene = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
