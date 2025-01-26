@@ -44,7 +44,7 @@ const PortfolioScene = () => {
   // assign positions to subsections, tricky to count as stored as nested arrays and maps
   var counter = 0;
   sections.forEach((section) => {
-    section.subsections.forEach((subsection : {}) => {
+    section.subsections.forEach((subsection : {[key: string]: any}) => {
       subsection.pos = counter;
       counter++;
     })
@@ -101,7 +101,7 @@ const PortfolioScene = () => {
           subsection.model,
           (gltf) => {
             gltf.scene.traverse(function (child) {
-              if (child.isMesh) {
+              if (child instanceof THREE.Mesh && child.isMesh) {
                   child.castShadow = true;
               }
             })
@@ -258,7 +258,6 @@ const PortfolioScene = () => {
         // Update camera aspect ratio and projection matrix
         cameraRef.current.aspect = width / height;
         cameraRef.current.updateProjectionMatrix();
-        cameraRef.current.position.z = Math.max(4 * window.innerHeight / window.innerWidth, 3.0);
       }
     };
     window.addEventListener("resize", handleResize);
@@ -340,7 +339,7 @@ const PortfolioScene = () => {
           transition: "opacity 2s ease",
         }}
         onTransitionEnd={(e) => {
-          if (e.propertyName === "opacity" && !loading) e.target.style.display = "none";
+          if (e.propertyName === "opacity" && !loading) (e.target as HTMLDivElement).style.display = "none";
         }}
       >
         <div style={{

@@ -6,6 +6,7 @@ const sections = [
       title: "Details",
       subsections: [
         {
+          pos: 0,
           title: "Liam Murphy",
           body: "Software Engineer",
           model: "/models/computer_v2.glb",
@@ -23,6 +24,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "About Me",
           body: "The man behind the machine.",
           model: "/models/earth.glb",
@@ -53,6 +55,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "Education",
           body: "MSci Computing Science",
           model: "/models/book.glb",
@@ -89,6 +92,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "Contact Me",
           body: "If you need to get in touch.",
           model: "/models/phone.glb",
@@ -124,6 +128,7 @@ const sections = [
       title: "Experience",
       subsections: [
         {
+          pos: 0,
           title: "JP Morgan",
           body: "Software Engineering Intern",
           model: "/models/letter_box.glb",
@@ -153,6 +158,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "UGRacing",
           body: "Perception Software Engineer",
           model: "/models/orange_traffic_cone.glb",
@@ -182,6 +188,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "Voiceover Interpreting",
           body: "Software Engineer",
           model: "/models/headphones.glb",
@@ -211,6 +218,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "GreenFox Energy",
           body: "Business Analyst",
           model: "/models/house.glb",
@@ -240,6 +248,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "The Entertainer",
           body: "Software Engineering Intern",
           model: "/models/toy.glb",
@@ -269,6 +278,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "GU Tech Society",
           body: "Board Member and Welfare Officer",
           model: "/models/cube.glb",
@@ -303,6 +313,7 @@ const sections = [
       title: "Projects",
       subsections: [
         {
+          pos: 0,
           title: "Portfolio Website",
           body: "The Website you're Currently On!",
           model: "/models/pin.glb",
@@ -333,6 +344,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "F1iS Website",
           body: "Freelance Web Developer",
           model: "/models/car.glb",
@@ -367,6 +379,7 @@ const sections = [
           </>
         },
         {
+          pos: 0,
           title: "DSA Visual",
           body: "Passion Project",
           model: "/models/eye.glb",
