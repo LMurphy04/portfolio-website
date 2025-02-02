@@ -19,7 +19,7 @@ const startY = 0.5;
 const startZ = Math.max(4 * window.innerHeight / window.innerWidth, 3.0);
 
 const spacingScale = 15;
-const detailHeight = 4;
+const detailHeight = 5;
 
 var timeOfLastRender : number | null = null;
 
@@ -529,6 +529,8 @@ const PortfolioScene = () => {
               display: "flex",
               flexDirection: "column",
               gap:"16px",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             {detailBody}
