@@ -524,7 +524,7 @@ const PortfolioScene = () => {
           <div
             style={{
               overflowY: "auto",
-              maxHeight: "60vh",
+              maxHeight: "55vh",
               wordBreak: "break-word",
               display: "flex",
               flexDirection: "column",
