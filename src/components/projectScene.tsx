@@ -321,7 +321,11 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
-        if (detailRef && detailRef.current) detailRef.current.scrollTop = 0;
+        if (detailRef && detailRef.current) {
+          detailRef.current.style.overflowY = "hidden";
+          detailRef.current.scrollTop = 0;
+          detailRef.current.style.overflowY = "auto";
+        }
       })
     };
   }
