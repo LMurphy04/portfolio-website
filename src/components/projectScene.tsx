@@ -322,7 +322,7 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
-        if (detailRef.current) detailRef.current.scrollTop = 0;
+        if (detailRef.current && showDetails) detailRef.current.scrollTop = 0;
       })
     };
   }
