@@ -521,7 +521,20 @@ const PortfolioScene = () => {
           >
             {detailTitle}
           </h1>
-          {detailBody}
+          <div
+            style={{
+              overflowY: "auto",
+              maxHeight: "55vh",
+              wordBreak: "break-word",
+              display: "flex",
+              flexDirection: "column",
+              gap:"16px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {detailBody}
+          </div>
           <button
             style={{
               width: "24px",

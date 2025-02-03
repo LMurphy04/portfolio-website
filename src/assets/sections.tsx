@@ -14,25 +14,14 @@ const sections = [
           shift: 0.0,
           scale: 2,
           rotation: 2.3,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             Hello, I'm Liam Murphy and welcome to my website! Each section represents details about me, my experiences, or my projects - please explore!
           </p>
           <h3>How to Navigate</h3>
           <p>
             Use the arrows and dots at the bottom of the page to move between sections. On each section you can <b>view more details by clicking anywhere on screen</b>, taking you to information like this. To return to the section (and begin exploring) click the down arrow below!</p>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -43,18 +32,7 @@ const sections = [
           shift: 0.0,
           scale: 0.18,
           rotation: 0.4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
           I’m an ambitious and driven Computing Science student, working hard to establish a track record of academic excellence and high value professional experiences. I’m continually looking for new opportunities to learn - whether through studying theory or engaging with new experiences. None of this is a chore - I love what I do.
           <br/><br/>In my spare time I’m a swimmer, socialiser, enthusiastic (albeit inconsistent) chef, and a Mario Kart addict.
@@ -75,7 +53,7 @@ const sections = [
               <p>LinkedIn</p>
             </a>
           </div>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -86,18 +64,7 @@ const sections = [
           shift: 0.4,
           scale: 1.5,
           rotation: 1.5,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
           I’m in my 3rd year at the University of Glasgow, studying for an Integrated Masters degree in Computer Science. Over the last three years I’ve explored a range of computing and mathematics subjects, with some of my favourites being: Algorithmics, Data Fundamentals, Text as Data, Object-Oriented Programming, Linear Algebra, and Discrete Mathematics.
           </p>
@@ -123,7 +90,7 @@ const sections = [
             </div>
             <p style={{fontSize:"14px"}}>~ Top of Cohort for Mathematics 1st Year University of Glasgow ~</p>
           </div>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -134,18 +101,7 @@ const sections = [
           shift: 0.0,
           scale: 0.6,
           rotation: 0.6,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             Please feel free to reach out!
           </p>
@@ -165,7 +121,7 @@ const sections = [
               <p>LinkedIn</p>
             </a>
           </div>
-          </div>
+          </>
         },
       ]
     },
@@ -181,25 +137,14 @@ const sections = [
           shift: 0.125,
           scale: 5,
           rotation: Math.PI / 4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             June 2025 – August 2025
           </p>
           <p>
             In summer 2025 I will be interning as a software engineer for JP Morgan in their Glasgow office. I’m thrilled to get the chance to gain further experience in industry, particularly with a company that's a global leader in its field with strong ties to University of Glasgow and international prominence in fintech.
           </p>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -210,18 +155,7 @@ const sections = [
           shift: 0.0,
           scale: 0.004,
           rotation: Math.PI / 4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             October 2024 – Present
           </p>
@@ -230,7 +164,7 @@ const sections = [
           UGRacing is the University of Glasgow’s Formula Student Team, in which I am a perception software engineer for the Driverless Vehicle division. As part of the perception team I help ensure that the autonomous vehicle knows where it is on the track at all times, manipulating data from a camera and LiDAR to enable the rest of the drive system to perform as required.
           <br/><br/>My current project is researching and developing a machine learning model to process point cloud LiDAR data and accurately detect and localize cones – alongside writing a research paper.
           </p>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -241,18 +175,7 @@ const sections = [
           shift: -0.7,
           scale: 0.3,
           rotation: Math.PI / 4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
           September 2024 – March 2025
           </p>
@@ -260,7 +183,7 @@ const sections = [
           <p>
           I am part of a seven-person software development team at the University of Glasgow, working on a booking and billing system for Voiceover Interpreting. The team follows an agile methodology, conducting frequent requirements gathering and refinement sessions with our client to ensure alignment with their needs. Our development process includes a continuous integration pipeline and integration testing to maintain stability and prevent regressions as we iterate on the system.
           </p>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -271,18 +194,7 @@ const sections = [
           shift: 0.0,
           scale: 0.3,
           rotation: -Math.PI/4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
           August 2024 – January 2025
           </p>
@@ -290,7 +202,7 @@ const sections = [
           <p>
           GreenFox Energy is a fast growing & innovative solar energy business. At GreenFox, I optimized and streamlined business processes through website development and automated CRM workflows, enhancing task efficiency, customer conversion rates, and retention. I also identified system inefficiencies and faults, designing and deploying effective solutions to improve overall performance and scalability.
           </p>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -301,18 +213,7 @@ const sections = [
           shift: 0.0,
           scale: 0.003,
           rotation: Math.PI/4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
           June 2024
           </p>
@@ -320,7 +221,7 @@ const sections = [
           <p>
           The Entertainer is Britain's leading toy retailer & developer of toys for children. During my software engineering internship at The Entertainer, I enhanced website engagement analysis by developing a Power BI dashboard using the GA4 API, enabling clear data visualization and comparison. I also leveraged Dynamic Yield and JavaScript to implement and analyze a social proofing A/B test, which increased revenue by 3% and was successfully deployed live. Additionally, I streamlined product price analysis by creating a Python web-scraping script, improving efficiency in data collection and comparison.
           </p>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -331,25 +232,14 @@ const sections = [
           shift: -0.3,
           scale: 0.15,
           rotation: Math.PI/4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
           April 2024 – December 2024
           </p>
           <p>
           As a Board Member of the Glasgow University Tech Society, I became the society’s first Welfare Officer - establishing welfare principles, creating a complaints procedure, and collaborating with the Glasgow SRC to shape the role’s impact. I also led social media and marketing efforts, achieving 3x follower growth through targeted event promotion and improved content strategy. Additionally, I played a key role in organizing the university’s flagship hackathons, managing event planning and sponsor collaboration to ensure their success.
           </p>
-          </div>
+          </>
         },
       ]
     },
@@ -365,18 +255,7 @@ const sections = [
           shift: -0.4,
           scale: 0.3,
           rotation: -Math.PI/4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             <b>Created:</b> January 2025
           </p>
@@ -396,7 +275,7 @@ const sections = [
               <p>GitHub</p>
             </a>
           </div>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -407,18 +286,7 @@ const sections = [
           shift: 0.2,
           scale: 0.4,
           rotation: Math.PI/4,
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             <b>Created:</b> July 2025 – September 2025
           </p>
@@ -442,7 +310,7 @@ const sections = [
               <p>GitHub</p>
             </a>
           </div>
-          </div>
+          </>
         },
         {
           pos: 0,
@@ -454,18 +322,7 @@ const sections = [
           scale: 0.006,
           rotation: Math.PI/4,
           detailTitle: "Liam Murphy",
-          detailBody: <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          detailBody: <>
           <p>
             <b>Created:</b> August 2024
           </p>
@@ -485,7 +342,7 @@ const sections = [
               <p>GitHub</p>
             </a>
           </div>
-          </div>
+          </>
         },
       ]
     },
