@@ -29,6 +29,7 @@ const PortfolioScene = () => {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
+  const detailRef = useRef<HTMLDivElement | null>(null);
 
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -323,6 +324,10 @@ const PortfolioScene = () => {
       })
     };
   }
+
+  useEffect(() => {
+    if (detailRef.current) detailRef.current.scrollTop = 0;
+  }, [detailBody])
 
   
   return (
