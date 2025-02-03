@@ -531,11 +531,11 @@ const PortfolioScene = () => {
               overflowY: "auto",
               maxHeight: "55vh",
               wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
+              // display: "flex",
+              // flexDirection: "column",
+              // gap:"16px",
+              // justifyContent: "center",
+              // alignItems: "center",
             }}
             ref={detailRef}
           >
