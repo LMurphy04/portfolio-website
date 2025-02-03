@@ -307,6 +307,7 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*index*spacingScale, startY, startZ+-1*index*spacingScale, 3, () => {
         setSectionTransition(false);
+        if (detailRef && detailRef.current) detailRef.current.scrollTop = 0;
       });
     }
   };
@@ -321,11 +322,7 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
-        if (detailRef && detailRef.current) {
-          detailRef.current.style.overflowY = "hidden";
-          detailRef.current.scrollTop = 0;
-          detailRef.current.style.overflowY = "auto";
-        }
+        if (detailRef && detailRef.current) detailRef.current.scrollTop = 0;
       })
     };
   }
