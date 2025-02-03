@@ -307,6 +307,7 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*index*spacingScale, startY, startZ+-1*index*spacingScale, 3, () => {
         setSectionTransition(false);
+        if (detailRef.current) detailRef.current.scrollTop = 0;
       });
     }
   };
@@ -321,13 +322,10 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
+        if (detailRef.current) detailRef.current.scrollTop = 0;
       })
     };
   }
-
-  useEffect(() => {
-    if (detailRef.current) detailRef.current.scrollTop = 0;
-  }, [detailBody])
 
   
   return (
@@ -531,11 +529,12 @@ const PortfolioScene = () => {
               overflowY: "auto",
               maxHeight: "55vh",
               wordBreak: "break-word",
-              // display: "flex",
-              // flexDirection: "column",
-              // gap:"16px",
-              // justifyContent: "center",
-              // alignItems: "center",
+              display: "flex",
+              flexDirection: "column",
+              flex: 1,
+              gap:"16px",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             ref={detailRef}
           >
