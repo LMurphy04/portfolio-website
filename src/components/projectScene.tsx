@@ -29,6 +29,7 @@ const PortfolioScene = () => {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
+  const detailRef = useRef<HTMLDivElement | null>(null);
 
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -320,6 +321,7 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
+        if (detailRef && detailRef.current) detailRef.current.scrollTop = 0;
       })
     };
   }
@@ -532,6 +534,7 @@ const PortfolioScene = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
+            ref={detailRef}
           >
             {detailBody}
           </div>
