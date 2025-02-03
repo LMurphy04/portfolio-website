@@ -29,7 +29,6 @@ const PortfolioScene = () => {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
-  const detailRef = useRef<HTMLDivElement | null>(null);
 
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -307,7 +306,6 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*index*spacingScale, startY, startZ+-1*index*spacingScale, 3, () => {
         setSectionTransition(false);
-        if (detailRef && detailRef.current) detailRef.current.scrollTop = 0;
       });
     }
   };
@@ -322,7 +320,6 @@ const PortfolioScene = () => {
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
-        if (detailRef && detailRef.current) detailRef.current.scrollTop = 0;
       })
     };
   }
@@ -524,21 +521,7 @@ const PortfolioScene = () => {
           >
             {detailTitle}
           </h1>
-          <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "55vh",
-              wordBreak: "break-word",
-              display: "flex",
-              flexDirection: "column",
-              gap:"16px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            ref={detailRef}
-          >
-            {detailBody}
-          </div>
+          {detailBody}
           <button
             style={{
               width: "24px",
