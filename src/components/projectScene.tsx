@@ -537,6 +537,7 @@ const PortfolioScene = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
+            ref={detailRef}
           >
             {detailBody}
           </div>
