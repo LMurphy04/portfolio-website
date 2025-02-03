@@ -533,7 +533,7 @@ const PortfolioScene = () => {
               flexDirection: "column",
               flex: 1,
               gap:"16px",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               alignItems: "center",
             }}
             ref={detailRef}
