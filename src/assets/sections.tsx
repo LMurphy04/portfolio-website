@@ -68,7 +68,19 @@ const sections = [
           <p>
           I’m in my 3rd year at the University of Glasgow, studying for an Integrated Masters degree in Computer Science. Over the last three years I’ve explored a range of computing and mathematics subjects, with some of my favourites being: Algorithmics, Data Fundamentals, Text as Data, Object-Oriented Programming, Linear Algebra, and Discrete Mathematics.
           </p>
-          <h3>Awards</h3>
+          </>
+        },
+        {
+          pos: 0,
+          title: "Awards",
+          body: "Honours & Achievments",
+          model: "/models/trophy_podium.glb",
+          offset: [0.3,-0.35,0],
+          shift: 0.05,
+          scale: 1.0,
+          rotation: 0,
+          detailBody: <>
+          <h3>Education</h3>
           <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
             <div style={{display:"flex", gap: "8px"}}>
               <FaTrophy/>
@@ -89,6 +101,14 @@ const sections = [
               <p>Lorimer Bursary for Level 1 Mathematics (22/23)</p>
             </div>
             <p style={{fontSize:"14px"}}>~ Top of Cohort for Mathematics 1st Year University of Glasgow ~</p>
+          </div>
+          <h3>Hackathon</h3>
+          <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
+            <div style={{display:"flex", gap: "8px"}}>
+              <FaTrophy/>
+              <p>DYHTG JP Morgan Hackathon Winner (2024)</p>
+            </div>
+            <p style={{fontSize:"14px"}}>~ Winner of the DYHTG JP Morgan <a href="https://github.com/VaradK62442/simplegame" target="_blank" style={{color: "inherit"}}>Simple Game</a> Challenge ~</p>
           </div>
           </>
         },
