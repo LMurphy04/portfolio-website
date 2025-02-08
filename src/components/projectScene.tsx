@@ -37,6 +37,7 @@ const PortfolioScene = () => {
 
   const [sectionTransition, setSectionTransition] = useState(false);
   const [detailTransition, setDetailTransition] = useState(false);
+  const isKeyPressed = useRef<string | null>(null);
 
   const [showDetails, setShowDetails] = useState<boolean>(true);
   const [detailTitle, setDetailTitle] = useState(sections[0].subsections[0].title);
@@ -277,6 +278,47 @@ const PortfolioScene = () => {
     };
   }, []);
 
+  // Key Press Navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (isKeyPressed.current === null) {
+        if (event.key === "ArrowRight") {
+          isKeyPressed.current = "ArrowRight";
+          sectionCameraTransition(currentSection + 1);
+        } else if (event.key === "ArrowLeft") {
+          isKeyPressed.current = "ArrowLeft";
+          sectionCameraTransition(currentSection - 1);
+        } else if (event.key === "ArrowUp") {
+          isKeyPressed.current = "ArrowUp";
+          detailCameraTransition(true);
+        } else if (event.key === "ArrowDown") {
+          isKeyPressed.current = "ArrowDown";
+          detailCameraTransition(false);
+        }
+      }
+    };
+
+    const handleKeyUp = (event: KeyboardEvent) => { 
+      if (
+        event.key === "ArrowRight" && isKeyPressed.current === "ArrowRight" ||
+        event.key === "ArrowLeft" && isKeyPressed.current === "ArrowLeft" ||
+        event.key === "ArrowDown" && isKeyPressed.current === "ArrowDown" ||
+        event.key === "ArrowUp" && isKeyPressed.current === "ArrowUp"
+      ) {
+        isKeyPressed.current = null;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+
+    // Cleanup on Unmount
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [detailTransition, showDetails, currentSection, loading, sectionTransition])
+
 
   // Handle Dark Mode Changes
   useEffect(() => {
@@ -291,7 +333,7 @@ const PortfolioScene = () => {
 
   // Handle Section Transitions
   const sectionCameraTransition = (index:number) => {
-    if (cameraRef.current && index >= 0 && index < counter && !detailTransition) {
+    if (cameraRef.current && index >= 0 && index < counter && !detailTransition && !showDetails && !loading) {
       setSectionTransition(true);
       setCurrentSection(index);
       
@@ -314,15 +356,15 @@ const PortfolioScene = () => {
 
 
   // Handle Transition for Show Details
-  const detailCameraTransition = (showDetails:boolean) => {
-    if (cameraRef.current && !detailTransition) {
+  const detailCameraTransition = (revealDetails:boolean) => {
+    if (cameraRef.current && !detailTransition && !sectionTransition && revealDetails != showDetails && !loading) {
       setDetailTransition(true);
-      const heightIncrease = showDetails ? detailHeight : 0
-      setShowDetails(showDetails)
+      const heightIncrease = revealDetails ? detailHeight : 0
+      setShowDetails(revealDetails)
 
       slideCamera(cameraRef.current, startX+1*currentSection*spacingScale, startY+heightIncrease, startZ+-1*currentSection*spacingScale, 3, () => {
         setDetailTransition(false);
-        if (detailRef.current && !showDetails) detailRef.current.scrollTop = 0;
+        if (detailRef.current && !revealDetails) detailRef.current.scrollTop = 0;
       })
     };
   }

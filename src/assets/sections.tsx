@@ -19,8 +19,9 @@ const sections = [
             Hello, I'm Liam Murphy and welcome to my website! Each section represents details about me, my experiences, or my projects - please explore!
           </p>
           <h3>How to Navigate</h3>
-          <p>
-            Use the arrows and dots at the bottom of the page to move between sections. On each section you can <b>view more details by clicking anywhere on screen</b>, taking you to information like this. To return to the section (and begin exploring) click the down arrow below!</p>
+          <p><b>Traditional:</b> Use the arrows and dots at the bottom of the screen to move between sections. To view more section details click anywhere on screen.</p>
+          <p><b>Arrow Keys:</b> Use the left and right arrow keys to move between sections. To view more section details use the up arrow, and return with the down arrow.</p>
+          <p><b>Mobile:</b> Swipe left and right to move between sections. To view more section details click anywhere on screen.</p>
           </>
         },
         {
