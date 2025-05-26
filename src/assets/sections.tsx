@@ -81,6 +81,14 @@ const sections = [
           scale: 1.0,
           rotation: 0,
           detailBody: <>
+          <h3>Industry</h3>
+          <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
+            <div style={{display:"flex", gap: "8px"}}>
+              <FaTrophy/>
+              <p>UK Software Engineering Undergraduate of the Year (2025)</p>
+            </div>
+            <p style={{fontSize:"14px"}}>~ TargetJobs UK and SkyScanner ~</p>
+          </div>
           <h3>Education</h3>
           <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
             <div style={{display:"flex", gap: "8px"}}>
