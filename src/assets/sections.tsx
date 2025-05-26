@@ -263,7 +263,7 @@ const sections = [
           rotation: Math.PI/4,
           detailBody: <>
           <p>
-          April 2024 – December 2024
+          April 2023 – December 2023
           </p>
           <p>
           As a Board Member of the Glasgow University Tech Society, I became the society’s first Welfare Officer - establishing welfare principles, creating a complaints procedure, and collaborating with the Glasgow SRC to shape the role’s impact. I also led social media and marketing efforts, achieving 3x follower growth through targeted event promotion and improved content strategy. Additionally, I played a key role in organizing the university’s flagship hackathons, managing event planning and sponsor collaboration to ensure their success.
@@ -317,7 +317,7 @@ const sections = [
           rotation: Math.PI/4,
           detailBody: <>
           <p>
-            <b>Created:</b> July 2025 – September 2025
+            <b>Created:</b> July 2024 – September 2024
           </p>
           <HorizontalPills headings={["React", "Next.js", "Three.js", "TypeScript", "Firestore"]}/>
           <p>
