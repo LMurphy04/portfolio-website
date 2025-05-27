@@ -290,7 +290,7 @@ const sections = [
           </p>
           <HorizontalPills headings={["React", "Three.js", "TypeScript"]}/>
           <p>
-            This website was created to showcase my development as a software engineer, giving others an insight into my work and projects. I didn't want to create "just another portfolio website", hence the creative 3D approach shown here.
+            This website was created to showcase my development as a software engineer, giving others an insight into my work and projects. I didn't want to create "just another portfolio website", hence the 3D approach shown here.
           </p>
           <div
             style={{
