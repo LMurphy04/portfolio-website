@@ -93,6 +93,13 @@ const sections = [
           <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
             <div style={{display:"flex", gap: "8px"}}>
               <FaTrophy/>
+              <p>Honours Class Prize in Level 3 Computing Science (24/25)</p>
+            </div>
+            <p style={{fontSize:"14px"}}>~ Top of Cohort for Computing 3rd Year University of Glasgow ~</p>
+          </div>
+          <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
+            <div style={{display:"flex", gap: "8px"}}>
+              <FaTrophy/>
               <p>JP Morgan Class Prize in Level 2 Computing Science (23/24)</p>
             </div>
             <p style={{fontSize:"14px"}}>~ Top of Cohort for Computing 2nd Year University of Glasgow ~</p>
