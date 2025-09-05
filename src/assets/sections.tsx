@@ -36,7 +36,7 @@ const sections = [
           detailBody: <>
           <p>
           I’m an ambitious and driven Computing Science student, working hard to establish a track record of academic excellence and high value professional experiences. I’m continually looking for new opportunities to learn - whether through studying theory or engaging with new experiences. None of this is a chore - I love what I do.
-          <br/><br/>In my spare time I’m a swimmer, socialiser, enthusiastic (albeit inconsistent) chef, and a Mario Kart addict.
+          <br/><br/>In my spare time I’m a swimmer, enthusiastic (albeit inconsistent) chef, and a Mario Kart addict.
           </p>
           <div
             style={{
