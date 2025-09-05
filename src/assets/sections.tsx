@@ -67,7 +67,7 @@ const sections = [
           rotation: 1.5,
           detailBody: <>
           <p>
-          I’m in my 3rd year at the University of Glasgow, studying for an Integrated Masters degree in Computer Science. Over the last three years I’ve explored a range of computing and mathematics subjects, with some of my favourites being: Algorithmics, Data Fundamentals, Text as Data, Object-Oriented Programming, Linear Algebra, and Discrete Mathematics.
+          I’m in my 4<sup>th</sup> year at the University of Glasgow, studying for an Integrated Masters degree in Computer Science. Over the last three years I’ve explored a range of computing and mathematics subjects, with some of my favourites being: Algorithmics, Data Fundamentals, Text as Data, Object-Oriented Programming, Linear Algebra, and Discrete Mathematics.
           </p>
           </>
         },
@@ -85,11 +85,18 @@ const sections = [
           <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
             <div style={{display:"flex", gap: "8px"}}>
               <FaTrophy/>
-              <p>UK Software Engineering Undergraduate of the Year (2025)</p>
+              <p>UK Software Engineering <a href="https://www.undergraduateoftheyear.com/award-year/2025" target="_blank" style={{color: "inherit"}}>Undergraduate of the Year (2025)</a></p>
             </div>
             <p style={{fontSize:"14px"}}>~ TargetJobs UK and SkyScanner ~</p>
           </div>
           <h3>Education</h3>
+          <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
+            <div style={{display:"flex", gap: "8px"}}>
+              <FaTrophy/>
+              <p>Class Prize in Level 3 Computing Science (24/25)</p>
+            </div>
+            <p style={{fontSize:"14px"}}>~ Top of Cohort for Computing 3rd Year University of Glasgow ~</p>
+          </div>
           <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
             <div style={{display:"flex", gap: "8px"}}>
               <FaTrophy/>
@@ -171,7 +178,7 @@ const sections = [
             June 2025 – August 2025
           </p>
           <p>
-            In summer 2025 I will be interning as a software engineer for JP Morgan in their Glasgow office. I’m thrilled to get the chance to gain further experience in industry, particularly with a company that's a global leader in its field with strong ties to University of Glasgow and international prominence in fintech.
+            During my Software Engineering internship at J.P. Morgan, I worked on building and refining production-level Java Spring Boot libraries and microservices that streamlined access to financial reference data across internal systems. I also enhanced security by modularizing access control logic into a reusable Spring Boot library, reducing redundancy across teams. Beyond the technical work, I collaborated within an agile development team in a large enterprise setting, gaining experience with structured workflows, code reviews, and cross-team coordination.
           </p>
           </>
         },
@@ -210,7 +217,7 @@ const sections = [
           </p>
           <HorizontalPills headings={["Python", "Django Rest Framework", "React", "TypeScript"]}/>
           <p>
-          I am part of a seven-person software development team at the University of Glasgow, working on a booking and billing system for Voiceover Interpreting. The team follows an agile methodology, conducting frequent requirements gathering and refinement sessions with our client to ensure alignment with their needs. Our development process includes a continuous integration pipeline and integration testing to maintain stability and prevent regressions as we iterate on the system.
+          As part of a seven-person software development team at the University of Glasgow, I worked on a booking and billing system for Voiceover Interpreting. The team followed an agile methodology, conducting frequent requirements gathering and refinement sessions with our client to ensure alignment with their needs. Our development process included a continuous integration pipeline and integration testing to maintain stability and prevent regressions as we iterated on the system.
           </p>
           </>
         },
@@ -229,7 +236,7 @@ const sections = [
           </p>
           <HorizontalPills headings={["HubSpot"]}/>
           <p>
-          GreenFox Energy is a fast growing & innovative solar energy business. At GreenFox, I optimized and streamlined business processes through website development and automated CRM workflows, enhancing task efficiency, customer conversion rates, and retention. I also identified system inefficiencies and faults, designing and deploying effective solutions to improve overall performance and scalability.
+          GreenFox Energy is a fast growing solar energy business. At GreenFox, I optimized and streamlined business processes through website development and automated CRM workflows, enhancing task efficiency, customer conversion rates, and retention. I also identified system inefficiencies and faults, designing and deploying effective solutions to improve overall performance and scalability.
           </p>
           </>
         },
@@ -256,11 +263,11 @@ const sections = [
           pos: 0,
           title: "GU Tech Society",
           body: "Board Member and Welfare Officer",
-          model: "/models/cube.glb",
-          offset: [0.0, 0.15, 0.0],
-          shift: -0.3,
-          scale: 0.15,
-          rotation: Math.PI/4,
+          model: "/models/cpu.glb",
+          offset: [-0.0, 0.2, 0.3],
+          shift: 0,
+          scale: 25.0,
+          rotation: Math.PI/3,
           detailBody: <>
           <p>
           April 2024 – December 2024
@@ -275,6 +282,37 @@ const sections = [
     {
       title: "Projects",
       subsections: [
+        {
+          pos: 0,
+          title: "Algo Mail",
+          body: "AWS LeetCode Assistant",
+          model: "/models/cloud.glb",
+          offset: [0.25, 0.6, 0.2],
+          shift: 0.1,
+          scale: 0.8,
+          rotation: -Math.PI/4,
+          detailBody: <>
+          <p>
+            <b>Created:</b> August 2025
+          </p>
+          <HorizontalPills headings={["AWS", "Python", "OpenAI API"]}/>
+          <p>
+            An automated serverless AWS workflow fetching LeetCode daily problems, generating algorithm insights with GPT-5-mini, and sending short-form educational emails. Built to help fit DSA practice into a busy schedule.
+          </p>
+          <div
+            style={{
+              flexDirection: "row",
+              display: "flex",
+              gap: "16px"
+            }}
+          >
+            <a href="https://github.com/LMurphy04/leetcode-daily-llm" target="_blank" style={{color: "inherit"}}>
+              <FaGithub/>
+              <p>GitHub</p>
+            </a>
+          </div>
+          </>
+        },
         {
           pos: 0,
           title: "Portfolio Website",
