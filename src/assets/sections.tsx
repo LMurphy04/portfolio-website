@@ -27,7 +27,7 @@ const sections = [
         {
           pos: 0,
           title: "About Me",
-          body: "The man behind the screen",
+          body: "The muppet behind the screen",
           model: "/models/earth.glb",
           offset: [0.0, 0.5, 0.0],
           shift: 0.0,
