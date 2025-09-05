@@ -93,7 +93,7 @@ const sections = [
           <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
             <div style={{display:"flex", gap: "8px"}}>
               <FaTrophy/>
-              <p>Class Prize in Level 3 Computing Science (24/25)</p>
+              <p>Honours Class Prize in Level 3 Computing Science (24/25)</p>
             </div>
             <p style={{fontSize:"14px"}}>~ Top of Cohort for Computing 3rd Year University of Glasgow ~</p>
           </div>
@@ -270,7 +270,7 @@ const sections = [
           rotation: Math.PI/3,
           detailBody: <>
           <p>
-          April 2024 – December 2024
+          April 2023 – December 2023
           </p>
           <p>
           As a Board Member of the Glasgow University Tech Society, I became the society’s first Welfare Officer - establishing welfare principles, creating a complaints procedure, and collaborating with the Glasgow SRC to shape the role’s impact. I also led social media and marketing efforts, achieving 3x follower growth through targeted event promotion and improved content strategy. Additionally, I played a key role in organizing the university’s flagship hackathons, managing event planning and sponsor collaboration to ensure their success.
@@ -328,7 +328,7 @@ const sections = [
           </p>
           <HorizontalPills headings={["React", "Three.js", "TypeScript"]}/>
           <p>
-            This website was created to showcase my development as a software engineer, giving others an insight into my work and projects. I didn't want to create "just another portfolio website", hence the creative 3D approach shown here.
+            This website was created to showcase my development as a software engineer, giving others an insight into my work and projects. I didn't want to create "just another portfolio website", hence the 3D approach shown here.
           </p>
           <div
             style={{
@@ -355,7 +355,7 @@ const sections = [
           rotation: Math.PI/4,
           detailBody: <>
           <p>
-            <b>Created:</b> July 2025 – September 2025
+            <b>Created:</b> July 2024 – September 2024
           </p>
           <HorizontalPills headings={["React", "Next.js", "Three.js", "TypeScript", "Firestore"]}/>
           <p>
